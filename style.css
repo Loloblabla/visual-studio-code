@@ -753,15 +753,37 @@ a.carte {
     flex-wrap: wrap;
   }
 }
-.carte {
+..carte {
+  display: block;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 12px 16px;
   margin: 12px 0;
+  color: inherit;
+  text-decoration: none;
 }
 
-.carte h3 {
-  margin: 0 0 6px;
+a.carte:hover {
+  border-color: #222;
+  background: #f5f5f5;
+}
+
+.carte h3 { margin: 0 0 6px; }
+
+.voir { font-weight: bold; }
+
+.type { color: #666; text-transform: uppercase; font-size: 0.85em; }
+
+.bouton {
+  display: inline-block;
+  background: #222;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.note { font-style: italic; color: #666; }
 }
 
 .note {

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiche - Tendances Son</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Tendances Son</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="festivals.html">Festivals</a>
+      <a href="tournees.html">Tournées</a>
+      <a href="decouvertes.html">Découvertes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="fiche">
+    <p>Chargement...</p>
+  </main>
+
+  <footer>&copy; 2026 Tendances Son</footer>
+
+  <script src="evenements.js"></script>
+  <script>
+    const id = new URLSearchParams(location.search).get("id");
+    const fiche = document.getElementById("fiche");
+
+    if (!id || !Object.prototype.hasOwnProperty.call(EVENEMENTS, id)) {
+      fiche.innerHTML = "<h2>Fiche introuvable</h2><p><a class='retour' href='tournees.html'>← Retour aux tournées</a></p>";
+    } else {
+      const e = EVENEMENTS[id];
+      document.title = e.nom + " - Tendances Son";
+
+      let html = "<a class='retour' href='javascript:history.back()'>← Retour</a>";
+
+      html += "<div class='hero' style=\"--img:url('images/" + id + ".jpg')\">";
+      html += "<div><span class='etiquette'>" + e.type + "</span><h2>" + e.nom + "</h2></div>";
+      html += "</div>";
+
+      html += "<div class='infos'>";
+      if (e.quand) html += "<div class='info'><span>Quand</span>" + e.quand + "</div>";
+      if (e.lieu)  html += "<div class='info'><span>Où</span>" + e.lieu + "</div>";
+      html += "</div>";
+
+      html += "<h3>À propos</h3><p>" + e.description + "</p>";
+
+      if (e.details.length > 0) {
+        html += "<h3>Infos pratiques</h3><ul>";
+        e.details.forEach(d => { html += "<li>" + d + "</li>"; });
+        html += "</ul>";
+      }
+
+      html += "<p style='margin-top:26px'><a class='bouton' href='" + e.lien + "' target='_blank' rel='noopener'>En savoir plus / billets</a></p>";
+
+      fiche.innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>
