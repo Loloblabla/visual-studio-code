@@ -1,0 +1,770 @@
+/* ========== Variables (couleurs du thème) ========== */
+:root {
+  --bg: #0b0b1a;
+  --text: #e8e8f5;
+  --muted: #9a9ab8;
+  --carte: rgba(255, 255, 255, 0.06);
+  --bordure: rgba(255, 255, 255, 0.12);
+  --nav: rgba(11, 11, 26, 0.6);
+  --violet: #7c5cff;
+  --rose: #ff5c9a;
+  --cyan: #22d3ee;
+  --degrade: linear-gradient(135deg, var(--violet), var(--rose) 60%, var(--cyan));
+}
+
+[data-theme="light"] {
+  --bg: #f6f5ff;
+  --text: #1a1a2e;
+  --muted: #5d5d7a;
+  --carte: rgba(255, 255, 255, 0.75);
+  --bordure: rgba(20, 20, 60, 0.1);
+  --nav: rgba(246, 245, 255, 0.7);
+}
+
+/* ========== Base ========== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background 0.4s, color 0.4s;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.15;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Halos de couleur animés en arrière-plan */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 45vw;
+  height: 45vw;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.35;
+  animation: flotter 14s ease-in-out infinite alternate;
+}
+
+body::before {
+  background: var(--violet);
+  top: -15vw;
+  left: -10vw;
+}
+
+body::after {
+  background: var(--rose);
+  bottom: -15vw;
+  right: -10vw;
+  animation-delay: -7s;
+}
+
+@keyframes flotter {
+  to { transform: translate(8vw, 6vw) scale(1.15); }
+}
+
+/* ========== Navigation ========== */
+header {
+ <nav>
+    <a class="logo" href="index.html">♫ TendanceSon</a>
+    <button id="burger" aria-label="Ouvrir le menu">☰</button>
+    <ul id="menu">
+      <li><a href="index.html" class="actif">Accueil</a></li>
+      <li><a href="festivals.html">Festivals</a></li>
+      <li><a href="tournees.html">Tournées</a></li>
+      <li><a href="decouvertes.html">Découvertes</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button id="theme-toggle" aria-label="Changer de thème">☀️</button></li>
+    </ul>
+  </nav>
+}
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul a {
+  color: var(--muted);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav ul a:hover,
+nav ul a.actif {
+  color: var(--text);
+}
+
+#theme-toggle {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+#theme-toggle:hover {
+  transform: rotate(25deg) scale(1.1);
+}
+
+/* ========== Mise en page ========== */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  margin: 100px 0;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Texte en dégradé animé */
+.gradient-text {
+  background: var(--degrade);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: degrade 6s ease infinite;
+  display: inline-block;
+}
+
+@keyframes degrade {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ========== Héros ========== */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+}
+
+.hero.petit {
+  min-height: 40vh;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 8vw, 5.2rem);
+  margin: 24px 0;
+}
+
+.hero p {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.badge {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ========== Boutons ========== */
+.boutons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.primaire {
+  background: var(--degrade);
+  color: white;
+  box-shadow: 0 8px 30px rgba(124, 92, 255, 0.45);
+}
+
+.fantome {
+  border: 1px solid var(--bordure);
+  background: var(--carte);
+}
+
+.blanc {
+  background: white;
+  color: #1a1a2e;
+}
+
+/* ========== Cartes ========== */
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.carte {
+  position: relative;
+  overflow: hidden;
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 22px;
+  padding: 32px 26px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.carte::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--degrade);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+
+.carte:hover {
+  transform: translateY(-8px);
+  border-color: var(--violet);
+  box-shadow: 0 20px 50px rgba(124, 92, 255, 0.25);
+}
+
+.carte:hover::before {
+  transform: scaleX(1);
+}
+
+.icone {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.carte h3 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+}
+
+.carte p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ========== Statistiques ========== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.stats strong {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 3.5rem;
+  background: var(--degrade);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stats span {
+  color: var(--muted);
+}
+
+/* ========== Bandeau d'appel à l'action ========== */
+.cta {
+  background: var(--degrade);
+  border-radius: 28px;
+  padding: 60px 30px;
+  text-align: center;
+  color: white;
+}
+
+.cta h2 {
+  margin-bottom: 10px;
+}
+
+.cta p {
+  margin: 0 0 28px;
+  opacity: 0.9;
+}
+
+/* ========== Page À propos ========== */
+.panneau {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto 100px;
+  backdrop-filter: blur(10px);
+}
+
+.competence {
+  margin-bottom: 26px;
+}
+
+.ligne {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.barre {
+  height: 10px;
+  background: var(--bordure);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barre span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--degrade);
+  border-radius: 999px;
+  transition: width 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.panneau.visible .barre span {
+  width: var(--niveau);
+}
+
+/* ========== Pied de page ========== */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--muted);
+  border-top: 1px solid var(--bordure);
+}
+
+/* ========== Animation d'apparition au scroll ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ========== Petits écrans ========== */
+@media (max-width: 600px) {
+  nav ul { gap: 14px; }
+  .panneau { padding: 26px; }
+}
+/* ========== Barre de progression du scroll ========== */
+#progression {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--degrade);
+  z-index: 20;
+}
+
+/* ========== Menu burger (mobile) ========== */
+#burger {
+  display: none;
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  color: var(--text);
+  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+nav {
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  #burger {
+    display: block;
+  }
+
+  #menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--bordure);
+  }
+
+  #menu.ouvert {
+    display: flex;
+  }
+}
+
+/* ========== Halo lumineux qui suit la souris ========== */
+.carte::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    300px circle at var(--x, 50%) var(--y, 50%),
+    rgba(124, 92, 255, 0.22),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.carte:hover::after {
+  opacity: 1;
+}
+
+/* ========== Page Projets ========== */
+.projets-zone {
+  margin-top: 40px;
+}
+
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.filtre {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  color: var(--muted);
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.filtre:hover {
+  color: var(--text);
+  border-color: var(--violet);
+}
+
+.filtre.actif {
+  background: var(--degrade);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 6px 24px rgba(124, 92, 255, 0.4);
+}
+
+.projet {
+  text-align: left;
+  animation: apparition 0.5s both;
+}
+
+.projet.cache {
+  display: none;
+}
+
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+.vignette {
+  height: 140px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin-bottom: 18px;
+}
+
+.v1 { background: linear-gradient(135deg, #7c5cff, #22d3ee); }
+.v2 { background: linear-gradient(135deg, #ff5c9a, #7c5cff); }
+.v3 { background: linear-gradient(135deg, #22d3ee, #ff5c9a); }
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 3px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--bordure);
+  color: var(--cyan);
+  margin-bottom: 10px;
+}
+
+/* ========== Formulaire de contact ========== */
+.champ {
+  margin-bottom: 22px;
+}
+
+.champ label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.champ input,
+.champ textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 14px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.champ input:focus,
+.champ textarea:focus {
+  outline: none;
+  border-color: var(--violet);
+  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.2);
+}
+
+.champ.invalide input,
+.champ.invalide textarea {
+  border-color: var(--rose);
+}
+
+.erreur {
+  display: block;
+  min-height: 1.2em;
+  margin-top: 6px;
+  color: var(--rose);
+  font-size: 0.85rem;
+}
+
+.envoyer {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.succes {
+  margin: 20px 0 0;
+  text-align: center;
+  color: var(--cyan);
+}
+/* ========== Cartes cliquables et textes d'infos ========== */
+a.carte {
+  display: block;
+}
+
+.infos {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.ecouter {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--degrade);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+.ecouter:hover {
+  transform: scale(1.06);
+}
+
+/* ========== Compte à rebours ========== */
+.compte {
+  text-align: center;
+}
+
+.compte h3 {
+  font-size: 1.8rem;
+  margin: 0 0 6px;
+}
+
+.lieu {
+  color: var(--muted);
+  margin: 0 0 30px;
+}
+
+.rebours {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.rebours div {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 16px;
+  padding: 18px 8px;
+}
+
+.rebours strong {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.6rem, 6vw, 2.8rem);
+  background: var(--degrade);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rebours span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ========== Liste des tournées ========== */
+.liste-tournees {
+  max-width: 760px;
+  margin: 40px auto 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tournee {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 20px 24px;
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.tournee:hover {
+  transform: translateX(8px);
+  border-color: var(--violet);
+}
+
+.tournee-infos {
+  flex: 1;
+}
+
+.tournee-infos h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.tournee-infos p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.date-badge {
+  min-width: 68px;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 14px;
+  background: var(--degrade);
+  color: white;
+}
+
+.date-badge strong {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.date-badge span {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .tournee {
+    flex-wrap: wrap;
+  }
+}
+.carte {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+
+.carte h3 {
+  margin: 0 0 6px;
+}
+
+.note {
+  font-style: italic;
+  color: #666;
+}

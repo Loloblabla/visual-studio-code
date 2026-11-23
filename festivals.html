@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets - Mon site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+  <a href="index.html">Accueil</a>
+  <a href="festivals.html">Festivals</a>
+  <a href="tournees.html">Tournées</a>
+  <a href="decouvertes.html">Découvertes</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <main>
+  <section class="hero petit">
+    <h1>Les <span class="gradient-text">festivals</span> 2027</h1>
+    <p>Les grands rendez-vous de l'été prochain.</p>
+  </section>
+
+  <section class="projets-zone">
+    <div class="filtres">
+      <button class="filtre actif" data-filtre="tous">Tous</button>
+      <button class="filtre" data-filtre="eclectique">Éclectique</button>
+      <button class="filtre" data-filtre="electro">Électro</button>
+      <button class="filtre" data-filtre="chanson">Chanson</button>
+    </div>
+
+    <div class="cartes">
+      <article class="carte projet" data-categorie="eclectique">
+        <div class="vignette v1">🎪</div>
+        <span class="tag">Éclectique</span>
+        <h3>Vieilles Charrues</h3>
+        <p class="infos">📅 15 – 18 juillet 2027<br>📍 Carhaix, Bretagne<br>35e édition, 4 jours, 4 scènes</p>
+      </article>
+
+      <article class="carte projet" data-categorie="electro">
+        <div class="vignette v2">🎛️</div>
+        <span class="tag">Électro</span>
+        <h3>Main Square Festival</h3>
+        <p class="infos">📅 Samedi 3 juillet 2027<br>📍 Arras<br>Tête d'affiche : David Guetta</p>
+      </article>
+
+      <article class="carte projet" data-categorie="chanson">
+        <div class="vignette v3">🎤</div>
+        <span class="tag">Chanson</span>
+        <h3>Restons Sérieux</h3>
+        <p class="infos">📅 Juillet 2027 (dates à confirmer)<br>📍 Paris, Supersonic<br>10e édition, scène française alternative</p>
+      </article>
+
+      <article class="carte projet" data-categorie="eclectique">
+        <div class="vignette v1">🎶</div>
+        <span class="tag">Gratuit</span>
+        <h3>Fête de la musique</h3>
+        <p class="infos">📅 Lundi 21 juin 2027<br>📍 Partout en France<br>Concerts pros et amateurs</p>
+      </article>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <p>© 2026 - Fait avec ❤️ et beaucoup de musique</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

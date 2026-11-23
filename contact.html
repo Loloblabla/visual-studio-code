@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Mon site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+   <nav>
+  <a href="index.html">Accueil</a>
+  <a href="festivals.html">Festivals</a>
+  <a href="tournees.html">Tournées</a>
+  <a href="decouvertes.html">Découvertes</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <main>
+    <section class="hero petit">
+      <h1>Parlons-<span class="gradient-text">en</span></h1>
+      <p>Une question, une idée, un conseil pour un débutant ? Écrivez-moi.</p>
+    </section>
+
+    <section class="panneau reveal">
+      <form id="formulaire" novalidate>
+        <div class="champ">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" placeholder="Votre nom">
+          <small class="erreur"></small>
+        </div>
+
+        <div class="champ">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="vous@exemple.com">
+          <small class="erreur"></small>
+        </div>
+
+        <div class="champ">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Votre message..."></textarea>
+          <small class="erreur"></small>
+        </div>
+
+        <button type="submit" class="btn primaire envoyer">Envoyer le message</button>
+        <p id="succes" class="succes" hidden>✅ Merci ! Votre message a bien été pris en compte.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 - Fait avec ❤️ et beaucoup de musique</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

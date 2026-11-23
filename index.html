@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - Mon site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+   <nav>
+  <a href="index.html">Accueil</a>
+  <a href="festivals.html">Festivals</a>
+  <a href="tournees.html">Tournées</a>
+  <a href="decouvertes.html">Découvertes</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <main>
+  <section class="hero">
+    <span class="badge">🎧 Le guide des tendances musicales</span>
+    <h1>
+      Ne rate plus <br>
+      <span class="gradient-text" id="mot">les concerts</span>
+    </h1>
+    <p>Festivals à venir, nouvelles tournées et sons à écouter en ce moment : tout au même endroit.</p>
+    <div class="boutons">
+      <a href="festivals.html" class="btn primaire">Voir les festivals</a>
+      <a href="decouvertes.html" class="btn fantome">Écouter du nouveau</a>
+    </div>
+  </section>
+
+  <section class="reveal">
+     <h2>Prochain <span class="gradient-text">événement</span></h2>
+  <div class="panneau compte">
+    <h3>Vieilles Charrues</h3>
+    <p class="lieu">📍 Carhaix, Bretagne · 15 – 18 juillet 2027</p>
+    <div class="rebours" data-date="2027-07-15T00:00:00">
+      <div><strong id="cj">0</strong><span>jours</span></div>
+      <div><strong id="ch">0</strong><span>heures</span></div>
+      <div><strong id="cm">0</strong><span>minutes</span></div>
+      <div><strong id="cs">0</strong><span>secondes</span></div>
+    </div>
+  </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Explorer <span class="gradient-text">le site</span></h2>
+    <div class="cartes">
+      <a href="festivals.html" class="carte">
+        <div class="icone">🎪</div>
+        <h3>Festivals</h3>
+        <p>Les rendez-vous de l'année, filtrés par style.</p>
+      </a>
+      <a href="tournees.html" class="carte">
+        <div class="icone">🎤</div>
+        <h3>Tournées</h3>
+        <p>Les artistes qui passent près de chez vous.</p>
+      </a>
+      <a href="decouvertes.html" class="carte">
+        <div class="icone">🎧</div>
+        <h3>Découvertes</h3>
+        <p>Les nouveaux sons à mettre dans vos playlists.</p>
+      </a>
+    </section>
+  </section>
+
+  <section class="stats reveal">
+    <div><strong data-cible="4">0</strong><span>festivals à l'affiche</span></div>
+  <div><strong data-cible="7">0</strong><span>tournées annoncées</span></div>
+  <div><strong>∞</strong><span>sons à découvrir</span></div>
+  </section>
+  </main>
+
+  <footer>
+    <p>© 2026 - Fait avec ❤️ et beaucoup de musique</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
